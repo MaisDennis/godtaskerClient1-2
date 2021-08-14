@@ -2,13 +2,14 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 50%;
-  overflow-y: scroll;
+  overflow: hidden;
+  /* overflow-y: scroll;
   ::-webkit-scrollbar {
     width: 4px;
   }
   ::-webkit-scrollbar-thumb {
     background: #ccc;
-  }
+  } */
   border-radius: 8px;
   margin: 4px 2px 4px 4px;
   padding: 8px;
@@ -29,17 +30,6 @@ export const Container = styled.div`
     width: 100%;
     /* margin: 8px; */
     /* background-color: #4ee; */
-  }
-
-  .list-header-strong {
-    width: auto;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: left;
-    overflow: hidden;
-    margin: 8px;
-    color: #1B2432;
-    /* background-color: #9d9eb4; */
   }
 
   .list-header-button-ul {
@@ -71,14 +61,26 @@ export const Container = styled.div`
     ::-webkit-scrollbar-thumb {
       background: #ccc;
     }
+    padding-bottom: 60px;
     /* background-color: #e3e; */
   }
 
 
-@media (max-width: 1400px) {
-  padding: 4px;
-}
-@media (max-width: 620px) {
+  @media (max-width: 1400px) {
+    padding: 4px;
+  }
+  @media (max-width: 620px) {
+    display: ${({ toggleContainer }) => (
+        toggleContainer === 1 ? 'block' : 'none'
+    )};
+    height: 92vh;
+    width: 100%;
+    margin: 4px 0;
+    /* background-color: #ee3; */
 
-}
+    .message-list {
+      padding-bottom: 80px;
+    }
+
+  }
 `;

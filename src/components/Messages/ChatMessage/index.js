@@ -52,7 +52,7 @@ export default function ChatMessage({
                         <div className="forward-on-top-div">
                           <IoReturnDownForward size={18} color={'#999'}/>
                           <span className={`message-span ${m.sender}`}>
-                            Mens. encaminhada
+                            Message Forwarded
                           </span>
                         </div>
                       )
@@ -99,20 +99,20 @@ export default function ChatMessage({
                       <button
                         className="message-dropMenu-button"
                         onClick={() => handleReply(m.message, m.sender)}
-                      >Responder</button>
+                      >Reply</button>
                     </li>
                     <li className="message-dropMenu-li">
                       <button
                         className="message-dropMenu-button"
                         onClick={() => handleForward(m.message)}
-                      >Encaminhar</button>
+                      >Forward</button>
                     </li>
                     { m.sender === 'user' && (
                       <li className="message-dropMenu-li">
                         <button
                           className="message-dropMenu-button"
                           onClick={() => handleMessageDelete(m.id)}
-                        >Deletar</button>
+                        >Delete</button>
                       </li>
                     )}
                   </ul>
@@ -151,7 +151,7 @@ export default function ChatMessage({
                         <div className="forward-on-top-div">
                           <IoReturnDownForward size={18} color={'#999'}/>
                           <span className={`message-span ${m.sender}`}>
-                            Mens. encaminhada
+                            Message Forwarded
                           </span>
                         </div>
                       )
@@ -198,20 +198,20 @@ export default function ChatMessage({
                       <button
                         className="message-dropMenu-button"
                         onClick={() => handleReply(m.message, m.sender)}
-                      >Responder</button>
+                      >Reply</button>
                     </li>
                     <li className="message-dropMenu-li">
                       <button
                         className="message-dropMenu-button"
                         onClick={() => handleForward(m.message)}
-                      >Encaminhar</button>
+                      >Forward</button>
                     </li>
                     { m.sender === 'user' && (
                       <li className="message-dropMenu-li">
                         <button
                           className="message-dropMenu-button"
                           onClick={() => handleMessageDelete(m.id)}
-                        >Deletar</button>
+                        >Delete</button>
                       </li>
                     )}
                   </ul>

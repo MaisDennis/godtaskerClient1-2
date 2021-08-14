@@ -20,6 +20,7 @@ export default function DashboardContainer() {
   const [previousListState, setPreviousListState] = useState();
   const [followIndividual, setFollowIndividual] = useState();
   const [followButtonTrigger, setFollowButtonTrigger] = useState();
+  const [toggleContainer, setToggleContainer] = useState(1);
 
   async function handleContactSelect(c) {
     setContact(c)
@@ -39,15 +40,21 @@ export default function DashboardContainer() {
     setCountFollowers(followedResponse.data)
     setFollowIndividual(followIndividualResponse.data[0])
     setFollowButtonTrigger(!followButtonTrigger)
+    setToggleContainer(2)
   }
   // ---------------------------------------------------------------------------
   return (
-    <Container>
-      <DashboardPanel/>
+    <Container toggleContainer={toggleContainer}>
+      <DashboardPanel
+        setToggleContainer={setToggleContainer}
+        toggleContainer={toggleContainer}
+      />
       { listState === 0
         && (
           <DashboardProfile
             setListState={setListState}
+            setToggleContainer={setToggleContainer}
+            toggleContainer={toggleContainer}
         />
         )
       }
@@ -64,10 +71,6 @@ export default function DashboardContainer() {
           <DashboardFollowers
             setListState={setListState}
             handleContactSelect={handleContactSelect}
-            // user={user}
-            // worker={worker}
-            // countFollowing={countFollowing}
-            // countFollowers={countFollowers}
           />
         )
       }
@@ -79,11 +82,12 @@ export default function DashboardContainer() {
             countFollowing={countFollowing}
             followButtonTrigger={followButtonTrigger}
             followIndividual={followIndividual}
+            previousListState={previousListState}
+
             setCountFollowers={setCountFollowers}
             setCountFollowing={setCountFollowing}
             setFollowButtonTrigger={setFollowButtonTrigger}
             setFollowIndividual={setFollowIndividual}
-            previousListState={previousListState}
             setListState={setListState}
           />
         )

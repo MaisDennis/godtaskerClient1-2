@@ -32,6 +32,7 @@ export default function MessageContainer() {
   const [oldChatId, setOldChatId] = useState(null);
   const [selectedContactId, setSelectedContactId] = useState();
   const [selectedMessageId, setSelectedMessageId] = useState();
+  const [toggleContainer, setToggleContainer] = useState(1);
 
   const formattedMessageDate = fdate =>
   fdate == null
@@ -64,11 +65,6 @@ export default function MessageContainer() {
     setDefaultFollowers(response.data);
   }
 
-  // function handleListState(number) {
-  //   loadMessages('', user_id, number);
-  //   setListState(number);
-  // }
-
   const firestore = firebase.firestore()
 
   async function handleMessageSelect(m) {
@@ -100,6 +96,7 @@ export default function MessageContainer() {
 
       setForwardValue();
     }
+    setToggleContainer(2)
   }
 
   async function handleContactSelect(c) {
@@ -111,8 +108,8 @@ export default function MessageContainer() {
 
     const workerTest = await messages.find(m => m.worker_id === c.id)
     const userTest = await messages.find(m => m.user_id === c.id)
-    console.log(workerTest)
-    console.log(userTest)
+    // console.log(workerTest)
+    // console.log(userTest)
 
     if (workerTest) {
       if (workerTest.user_id !== user_id) {
@@ -136,22 +133,28 @@ export default function MessageContainer() {
       setMessage()
       // console.log("No chat yet")
     }
+    setToggleContainer(2)
   }
   // ---------------------------------------------------------------------------
   return (
-    <Container>
+    <Container toggleContainer={toggleContainer}>
       <MessageList
         defaultFollowers={defaultFollowers}
         defaultFollowing={defaultFollowing}
         defaultMessages={defaultMessages}
+
         followers={followers}
         following={following}
+
         handleContactSelect={handleContactSelect}
         handleMessageSelect={handleMessageSelect}
+
         listState={listState}
         loadFollowers={loadFollowers}
         loadFollowing={loadFollowing}
+
         messages={messages}
+
         setContact={setContact}
         setFollowers={setFollowers}
         setFollowing={setFollowing}
@@ -162,6 +165,7 @@ export default function MessageContainer() {
         selectedMessageId={selectedMessageId}
         setSelectedContactId={setSelectedContactId}
         setSelectedMessageId={setSelectedMessageId}
+        toggleContainer={toggleContainer}
       />
       { message
         ? (
@@ -173,6 +177,8 @@ export default function MessageContainer() {
             message={message}
             messages={messages}
             setForwardValue={setForwardValue}
+            setToggleContainer={setToggleContainer}
+            toggleContainer={toggleContainer}
           />
         )
         : (
@@ -184,9 +190,9 @@ export default function MessageContainer() {
                   loadFollowing={loadFollowing}
                   loadMessages={loadMessages}
                   message={message}
-                  setDefaultMesages={setDefaultMessages}
                   setForwardValue={setForwardValue}
-                  setMessages={setMessages}
+                  setToggleContainer={setToggleContainer}
+                  toggleContainer={toggleContainer}
                 />
               )
               : (
@@ -194,17 +200,21 @@ export default function MessageContainer() {
                   { contact && !message
                     ? (
                       <NewMessageDiv
+                        chatMessages={chatMessages}
+
                         loadFollowers={loadFollowers}
                         loadFollowing={loadFollowing}
                         loadMessages={loadMessages}
+
                         message={message}
                         newWorkerData={contact}
-                        setForwardValue={setForwardValue}
-                        // setMessage={setMessage}
-                        chatMessages={chatMessages}
-                        setChatMessages={setChatMessages}
                         oldChatId={oldChatId}
+
+                        setChatMessages={setChatMessages}
+                        setForwardValue={setForwardValue}
                         setOldChatId={setOldChatId}
+                        setToggleContainer={setToggleContainer}
+                        toggleContainer={toggleContainer}
                       />
                     )
                     : (

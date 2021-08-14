@@ -144,6 +144,10 @@ export default function TasksCreate({ setHeaderMenu }) {
             description,
             sub_task_list: subTasks,
             task_attributes: taskAttributeArray,
+            status: {
+              status: 1,
+              comment: new Date(),
+            },
             confirm_photo: radioConfirmPhoto,
             start_date,
             due_date,

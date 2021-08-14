@@ -8,11 +8,9 @@ import firebase from '~/services/firebase'
 import insert from '~/assets/insert_photo-24px.svg';
 
 export default function TaskLine({
-  handleTaskDetails, handleSelect,
-  load,
-  selectArray, selectedTaskId,
+  handleTaskDetails,
+  selectedTaskId,
   t,
-  user_id,
 }) {
   const messageInputRef = useRef();
   const [messages, setMessages] = useState();
@@ -41,29 +39,6 @@ export default function TaskLine({
       })
     return unsubscribe;
   }
-
-  // async function handleSelect(e, id, taskAttributes, radioType) {
-  //   let editedTaskAttributes = []
-  //   if(radioType === 'Prior') {
-  //     editedTaskAttributes = [
-  //       e.target.value,
-  //       taskAttributes[1],
-  //       taskAttributes[2],
-  //     ]
-  //   } else {
-  //     editedTaskAttributes = [
-  //       taskAttributes[0],
-  //       e.target.value,
-  //       taskAttributes[2],
-  //     ]
-  //   }
-
-  //   await api.put(`tasks/${id}`, {
-  //     task_attributes: editedTaskAttributes
-  //   });
-
-  //   load('', user_id, 1);
-  // }
 
   const handleStatus = (sub_task_list) => {
     let weigeSum = 0;

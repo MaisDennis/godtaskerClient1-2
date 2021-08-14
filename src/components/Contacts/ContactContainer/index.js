@@ -18,6 +18,7 @@ export default function ContactContainer() {
   const [followIndividual, setFollowIndividual] = useState();
   const [followButtonTrigger, setFollowButtonTrigger] = useState();
   const [selectedContactId, setSelectedContactedId] = useState();
+  const [toggleContainer, setToggleContainer] = useState(1);
 
   useEffect(() => {
     loadWorkers('');
@@ -50,16 +51,18 @@ export default function ContactContainer() {
     setCountFollowers(followedResponse.data)
     setFollowIndividual(followIndividualResponse.data[0])
     setFollowButtonTrigger(!followButtonTrigger)
+    setToggleContainer(2)
   }
   // ---------------------------------------------------------------------------
   return (
-    <Container>
+    <Container toggleContainer={toggleContainer}>
       <ContactList
         contacts={contacts}
         defaultContacts={defaultContacts}
         handleContactSelect={handleContactSelect}
         selectedContactId={selectedContactId}
         setContacts={setContacts}
+        toggleContainer={toggleContainer}
       />
     { contact
       ? (
@@ -73,6 +76,8 @@ export default function ContactContainer() {
           setCountFollowing={setCountFollowing}
           setFollowButtonTrigger={setFollowButtonTrigger}
           setFollowIndividual={setFollowIndividual}
+          setToggleContainer={setToggleContainer}
+          toggleContainer={toggleContainer}
         />
       )
       : (

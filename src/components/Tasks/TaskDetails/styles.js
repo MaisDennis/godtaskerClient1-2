@@ -16,6 +16,10 @@ export const Container = styled.div`
   background-color: #fff;
   /* background-color: #f00; */
 
+  .back-button {
+    display: none;
+  }
+
   .details-header-div {
     display: flex;
     flex-direction: column;
@@ -350,6 +354,17 @@ export const Container = styled.div`
       font-size: .8rem;
     }
   }
+
   @media (max-width: 620px) {
+    display: ${({ toggleContainer }) => (
+      toggleContainer === 2 ? 'block' : 'none'
+    )};
+    width: 100%;
+    margin: 4px 0;
+    /* background-color: #ffc87c; */
+
+    .back-button {
+      display: block;
+    }
   }
 `;

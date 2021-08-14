@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { darken} from 'polished';
+import { darken, lighten } from 'polished';
 
 export const Container = styled.div`
   display: flex;
@@ -16,7 +16,7 @@ export const Container = styled.div`
     align-items: center;
     width: 50%;
     text-align: center;
-    border-radius: 4px;
+    border-radius: 8px;
     background-color: #F5f5f5;
   }
 
@@ -107,42 +107,44 @@ export const Container = styled.div`
 
   .save-button {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
-    height: 36px;
-    width: 108px;
-    font-size: 14px;
+    height: 28px;
+    width: 84px;
+    font-size: 12px;
     font-weight: bold;
-    border: 0;
-    border-radius: 4px;
-    padding: auto;
-    margin: 0 4px;
+    margin: 4px 0;
+    padding: 4px;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.2s;
     color: #fff;
-    background: #18A0FB;
-    transition: background 0.2s;
+    background-color: #18A0FB;
     &:hover {
-      background: ${darken(0.2, '#18A0FB')};
+      background-color: ${lighten(0.2, '#18A0FB')};
     }
   }
 
   .back-button {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
-    height: 36px;
-    width: 108px;
-    font-size: 14px;
+    height: 28px;
+    width: 84px;
+    font-size: 12px;
     font-weight: bold;
-    border: 0;
-    border-radius: 4px;
-    padding: auto;
-    margin: 0 4px;
+    margin: 4px 0;
+    padding: 4px;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+    margin-left: 8px;
     color: #fff;
-    /* background: #007f66; */
-    background: #666;
-    transition: background 0.2s;
+    background-color: #403F4C;
     &:hover {
-      background: ${darken(0.2, '#666')};
+      background-color: ${lighten(0.2, '#403F4C')};
     }
   }
 
@@ -191,6 +193,11 @@ export const Container = styled.div`
   }
 
   @media (max-width: 620px) {
+    .profile-div {
+      width: 100%;
+      border-radius: 0;
+    }
+
     button {
       font-size: .8rem;
     }

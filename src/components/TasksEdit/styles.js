@@ -257,7 +257,7 @@ export const Container = styled.div`
   .sub-task-add-button {
     height: 28px;
     width: 216px;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: bold;
     margin: 4px 0;
     border: none;

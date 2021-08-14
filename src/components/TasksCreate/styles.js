@@ -367,8 +367,8 @@ export const Container = styled.div`
   }
   @media (max-width: 620px) {
     max-width: 100%;
-
     border-radius: 0;
+    margin-top: 8vh;
 
     /* .header-title-strong {
       font-size: .8rem;

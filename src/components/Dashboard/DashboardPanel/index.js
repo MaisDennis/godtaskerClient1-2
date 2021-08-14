@@ -2,10 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 // -----------------------------------------------------------------------------
 import { Container } from './styles';
+import Button from '../../Buttons';
 import api from '~/services/api';
 // -----------------------------------------------------------------------------
 
-export default function DashboardPanel() {
+export default function DashboardPanel({
+  setToggleContainer, toggleContainer,
+}) {
   const user_id = useSelector(state => state.user.profile.id);
   const worker_id = useSelector(state => state.worker.profile.id);
 
@@ -64,8 +67,14 @@ export default function DashboardPanel() {
 
   // ---------------------------------------------------------------------------
   return (
-    <Container>
+    <Container toggleContainer={toggleContainer}>
       <div className="content-wrapper">
+        <div className="buttons-view">
+          <Button
+            type="02"
+            onClick={() => setToggleContainer(2)}
+          >Profile</Button>
+        </div>
         <div className="content-view">
           <div className="label-view">
             <label className="label">Boss Status:</label>

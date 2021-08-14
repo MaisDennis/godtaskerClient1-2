@@ -135,13 +135,13 @@ export const Container = styled.div`
     }
 
     .logo {
-      width: 44.4%;
+      /* width: 44.4%; */
       margin-top: 24px;
     }
 
     .godtasker {
       margin: auto;
-      width: 66.6%;
+      /* width: 66.6%; */
       margin-bottom: 24px;
       /* background: #868; */
     }

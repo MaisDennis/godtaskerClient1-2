@@ -15,59 +15,13 @@ export const Container = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
-  margin: 0;
+  margin: 8px 0;
+  width: 100%;
   /* background-color: #4433ee; */
 }
 
-.task-button {
-    height: 28px;
-    width: 84px;
-    font-size: 12px;
-    font-weight: bold;
-    margin: 4px 8px;
-    padding: 4px;
-    border: none;
-    border-radius: 4px;
-    transition: background-color 0.2s;
-    color: #fff;
-  }
-
-  .task-button.blue {
-    background-color: #000;
-    margin-right: 8px;
-    &:hover {
-      background-color: ${lighten(0.2, '#000')};
-    }
-  }
-  .task-button.grey {
-    background-color: #666;
-    &:hover {
-      background-color: ${lighten(0.2, '#666')};
-    }
-  }
-
-.follow-button {
-  /* height: 36px; */
-  width: 108px;
-  font-weight: bold;
-  border: 1px solid #18A0FB;
-  border-radius: 24px;
-  padding: 4px 8px;
-  margin: 4px 0;
-  color: #fff;
-  background-color: #18A0FB;
-}
-
-.following-button {
-  /* height: 36px; */
-  width: 108px;
-  font-weight: bold;
-  border: 1px solid #18A0FB;
-  border-radius: 24px;
-  padding: 4px 8px;
-  margin: 4px 0;
-  color: #18A0FB;
-  background-color: #fff;
+.profile-header-mobile {
+  display: none;
 }
 
 .header {
@@ -171,7 +125,6 @@ export const Container = styled.div`
 .body {
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   width: 100%;
   /* background-color: #999; */
 }
@@ -222,9 +175,37 @@ export const Container = styled.div`
 }
 
 .bio-text {
-
   /* background-color: #999; */
 }
+
+  @media (max-width: 1400px) {
+    padding: 4px;
+  }
+
+  @media (max-width: 620px) {
+    display: ${({ toggleContainer }) => (
+      toggleContainer === 2 ? 'block' : 'none'
+    )};
+    width: 100%;
+    margin: 4px 0;
+    /* background-color: #ffc87c; */
+
+    .profile-header {
+      display: none;
+    }
+
+    .profile-header-mobile {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-end;
+      margin: 8px 0;
+      width: 100%;
+      /* background-color: #4ee; */
+    }
+
+
+  }
 
 
 `;

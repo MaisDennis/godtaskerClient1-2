@@ -11,18 +11,12 @@ import firebase from '~/services/firebase'
 import insert from '~/assets/insert_photo-24px.svg';
 
 export default function TaskLine({
-  handleTaskDetails, handleSelect,
-  load,
-  selectArray, selectedTaskId,
+  handleTaskDetails,
+  selectedTaskId,
   t,
-  user_id,
 }) {
   const messageInputRef = useRef();
   const [messages, setMessages] = useState();
-
-  // useEffect(() => {
-  //   getMessages();
-  // }, [])
 
   const formattedDate = fdate =>
   fdate == null
@@ -31,42 +25,6 @@ export default function TaskLine({
 
   const firestore = firebase.firestore()
   const messagesRef = firestore.collection(`messages/task/${t.id}`)
-
-  // async function getMessages() {
-  //   const unsubscribe = await messagesRef
-  //     .orderBy('createdAt')
-  //     .onSnapshot((querySnapshot) => {
-
-  //       const data = querySnapshot.docs.map(d => ({
-  //         ...d.data(),
-  //       }));
-  //       setMessages(data)
-  //     })
-  //   return unsubscribe;
-  // }
-
-  // async function handleSelect(e, id, taskAttributes, radioType) {
-  //   let editedTaskAttributes = []
-  //   if(radioType === 'Prior') {
-  //     editedTaskAttributes = [
-  //       e.target.value,
-  //       taskAttributes[1],
-  //       taskAttributes[2],
-  //     ]
-  //   } else {
-  //     editedTaskAttributes = [
-  //       taskAttributes[0],
-  //       e.target.value,
-  //       taskAttributes[2],
-  //     ]
-  //   }
-
-  //   await api.put(`tasks/${id}`, {
-  //     task_attributes: editedTaskAttributes
-  //   });
-
-  //   load('', user_id, 1);
-  // }
 
   const handleStatus = (sub_task_list) => {
     let weigeSum = 0;
@@ -220,7 +178,6 @@ export default function TaskLine({
                     </div>
                     <div className="bell-label last">
                       { (hasUnread(messages) === 0)
-                      // { !t.score
                         ? (
                           <Badge
                             style={{visibility: 'hidden'}}

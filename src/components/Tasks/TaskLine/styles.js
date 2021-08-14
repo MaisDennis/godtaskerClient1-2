@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
   height: auto;
+  background-color: #999;
 
   .line-div {
     display: flex;
@@ -58,7 +59,6 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* justify-content: center; */
     height: 100%;
     width: 10%;
     /* background-color: #F0FFF0; */
@@ -90,6 +90,9 @@ export const Container = styled.div`
   }
 
   .task-label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     font-weight: bold;
     text-align: left;
     overflow: hidden;
@@ -99,6 +102,9 @@ export const Container = styled.div`
   }
 
   .item-label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     text-align: left;
     overflow: hidden;
     margin: 8px 8px 4px;
@@ -118,7 +124,6 @@ export const Container = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    /* width: 100%; */
     margin: 0 8px;
     /* background-color: #e22; */
   }
@@ -161,7 +166,6 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* height: 100%; */
     width: 90%;
     margin: 12px 0 4px;
     /* background-color: #443e; */
@@ -216,7 +220,6 @@ export const Container = styled.div`
   }
 
   @media (max-width: 1400px) {
-    /* padding: 4px; */
 
     .item-label {
       width: 80px;
@@ -228,47 +231,6 @@ export const Container = styled.div`
       width: 80px;
       font-size: .8rem;
       /* background: #d1ffbd; */
-    }
-    img {
-      height: 24px;
-      width: 24px;
-      border-radius: 50%;
-      margin: 1px;
-    }
-
-    .short-label {
-      width: 72px;
-      font-size: .8rem;
-      /* background-color: #4433ee; */
-    }
-
-    .list-select-4 {
-      height: 16px;
-      width: 64px;
-      font-size: 12px;
-      margin: auto 4px;
-      /* background-color: #a0daa9; */
-    }
-    .list-select-3 {
-      height: 16px;
-      width: 64px;
-      font-size: 12px;
-      margin: auto 4px;
-      /* background-color: #a0daa9; */
-    }
-    .list-select-2 {
-      height: 16px;
-      width: 64px;
-      font-size: 12px;
-      margin: auto 4px;
-      /* background-color: #a0daa9; */
-    }
-    .list-select-1 {
-      height: 16px;
-      width: 64px;
-      font-size: 12px;
-      margin: auto 4px;
-      /* background-color: #a0daa9; */
     }
 
     .startdate {
@@ -303,72 +265,29 @@ export const Container = styled.div`
   }
 
   @media (max-width: 620px) {
+    .task-label {
+      width: 100%;
+      font-size: 1rem;
+      /* background: #eac; */
+    }
+
     .item-label {
-      width: 60px;
-      font-size: .6rem;
+      width: 100%;
+      font-size: 1rem;
       /* background: #eac853; */
-    }
-
-    .worker-profile-div {
-      width: 60px;
-      font-size: .6rem;
-      /* background: #d1ffbd; */
-    }
-
-    .short-label {
-      width: 60px;
-      font-size: .6rem;
-      /* background-color: #4433ee; */
-    }
-
-    .list-select-4 {
-      height: 16px;
-      width: 40px;
-      font-size: .6rem;
-      margin: auto 2px;
-      padding: 0;
-      /* background-color: #a0daa9; */
-    }
-
-    .list-select-3 {
-      height: 16px;
-      width: 40px;
-      font-size: .6rem;
-      margin: auto 2px;
-      padding: 0;
-      /* background-color: #a0daa9; */
-    }
-
-    .list-select-2 {
-      height: 16px;
-      width: 40px;
-      font-size: .6rem;
-      margin: auto 2px;
-      padding: 0;
-      /* background-color: #a0daa9; */
-    }
-
-    .list-select-1 {
-      height: 16px;
-      width: 40px;
-      font-size: .6rem;
-      margin: auto 2px;
-      padding: 0;
-      /* background-color: #a0daa9; */
     }
 
     .startdate {
       width: 40px;
-      font-size: .5rem;
+      font-size: 1rem;
       border-radius: 4px;
       padding: 0;
-      margin: auto 4px;
       /* background-color: #F5F5F5; */
     }
 
     .duedate {
       width: 40px;
-      font-size: .5rem;
+      font-size: 1rem;
       border-radius: 4px;
       padding: 0;
       margin: auto 4px;
@@ -386,10 +305,9 @@ export const Container = styled.div`
       display: flex;
       flex-direction: row;
       height: 8px;
-      width: 90%;
+      width: 80%;
       margin: 0 auto;
       border-radius: 8px;
-      background-color: #F5F5F5;
     }
 
     .status-incomplete-div {
@@ -406,7 +324,7 @@ export const Container = styled.div`
     }
 
     .status-span {
-      font-size: .6rem;
+      font-size: .7rem;
       /* background-color: #999; */
     }
 
@@ -420,368 +338,6 @@ export const Container = styled.div`
       /* background-color: #43e; */
     }
 
-    .others-button {
-      font-size: .6rem;
-    }
-  }
-`;
-
-export const Line = styled.div`
-  .line-div {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    height: auto;
-    min-height: 66px;
-    width: 100%;
-    border-radius: 4px;
-    border: 1px solid #ddd;
-    padding: 4px 0;
-    margin: 4px 0;
-    background-color: #fff;
-    /* background: #d1ffbd; */
-  }
-  .line-div.canceled {
-    background-color: #F5F5F5;
-  }
-  .line-div.selected {
-    border: 2px solid #666;
-  }
-  .line-div.canceled.selected {
-    border: 2px solid #666;
-  }
-  .worker-profile-div {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 330px;
-    /* background: #d1ffbd; */
-  }
-  img {
-    height: 48px;
-    width: 48px;
-    border-radius: 50%;
-    margin: 4px 8px;
-  }
-  .item-label {
-    width: 220px;
-    max-width: 220px;
-    overflow: hidden;
-    /* background: #eac853; */
-  }
-  .short-label {
-    width: 110px;
-    max-width: 110px;
-    /* background-color: #daf1e0; */
-  }
-  .list-select-4 {
-    height: 24px;
-    width: 80px;
-    max-width: 110px;
-    background-color: #fff;
-    font-size: 14px;
-    margin: 0 15px;
-    padding: 0 8px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    /* background: #a0da; */
-  }
-  .list-select-3 {
-    height: 24px;
-    width: 80px;
-    max-width: 110px;
-    background-color: #fff;
-    font-size: 14px;
-    margin: 0 15px;
-    padding: 0 8px;
-    border-radius: 4px;
-    border: none;
-    /* color: #fff; */
-    background-color: #ED7777;
-    /* background-color: #FF0F0F; */
-  }
-  .list-select-2 {
-    height: 24px;
-    width: 80px;
-    max-width: 110px;
-    background-color: #fff;
-    font-size: 14px;
-    margin: 0 15px;
-    padding: 0 8px;
-    border-radius: 4px;
-    border: none;
-    /* color: #fff; */
-    /* background-color: #ff892e; */
-    background-color: #f3c775;
-    /* background-color: #F3C48C; */
-  }
-  .list-select-1 {
-    height: 24px;
-    width: 80px;
-    max-width: 110px;
-    background-color: #fff;
-    font-size: 14px;
-    margin: 0 15px;
-    padding: 0 8px;
-    border-radius: 4px;
-    border: none;
-    /* color: #fff; */
-    background-color: #F3E675;
-    /* background-color: #F5F9AD; */
-  }
-  /* .list-select-1.canceled {
-    background-color: none;
-  } */
-  .list-option {
-    color: #222;
-    background-color: #fff;
-  }
-  .startdate {
-    width: 102px;
-    border-radius: 24px;
-    padding: 4px;
-    margin: 0 4px;
-    background-color: #f9f9f9;
-  }
-  .startdate.green {
-    background-color: #009966;
-  }
-  .duedate {
-    width: 102px;
-    max-width: 110px;
-    border-radius: 24px;
-    padding: 4px;
-    margin: auto 4px;
-  }
-  .duedate.red {
-    /* background-color: #EE204D; */
-    background-color: #f64C75;
-  }
-  .duedate.green {
-    background-color: #009966;
-    /* background-color: #BCDF8A; */
-  }
-  .status-label {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: 110px;
-    max-width: 110px;
-    margin: auto 0;
-    /* background-color: #443e; */
-  }
-  .status-complete-div {
-    display: flex;
-    flex-direction: row;
-    height: 12px;
-    width: 90%;
-    margin: 0 auto;
-    border-radius: 8px;
-    background-color: #F5F5F5;
-  }
-  .status-incomplete-div {
-    height: 12px;
-    border-radius: 8px;
-    /* background-color: #daf1e0; */
-    background-image: linear-gradient(to right, #ffdd33, #ff892e);
-  }
-  .status-span {
-    position: relative;
-    font-size: 12px;
-    /* background-color: #999; */
-  }
-  .bell-label {
-    display: flex;
-    align-items: center;
-    width: 48px;
-    /* background-color: #43e; */
-  }
-  .bell-label.last {
-    display: flex;
-    align-items: center;
-    width: 48px;
-    /* margin-right: 12px; */
-    /* background-color: #999; */
-  }
-  @media (max-width: 1400px) {
-    /* padding: 4px; */
-    .item-label {
-      width: 80px;
-      font-size: .8rem;
-      /* background: #eac853; */
-    }
-    .worker-profile-div {
-      width: 80px;
-      font-size: .8rem;
-      /* background: #d1ffbd; */
-    }
-    img {
-      height: 24px;
-      width: 24px;
-      border-radius: 50%;
-      margin: 1px;
-    }
-    .short-label {
-      width: 72px;
-      font-size: .8rem;
-      /* background-color: #4433ee; */
-    }
-    .list-select-4 {
-      height: 16px;
-      width: 64px;
-      font-size: 12px;
-      margin: auto 4px;
-      /* background-color: #a0daa9; */
-    }
-    .list-select-3 {
-      height: 16px;
-      width: 64px;
-      font-size: 12px;
-      margin: auto 4px;
-      /* background-color: #a0daa9; */
-    }
-    .list-select-2 {
-      height: 16px;
-      width: 64px;
-      font-size: 12px;
-      margin: auto 4px;
-      /* background-color: #a0daa9; */
-    }
-    .list-select-1 {
-      height: 16px;
-      width: 64px;
-      font-size: 12px;
-      margin: auto 4px;
-      /* background-color: #a0daa9; */
-    }
-    .startdate {
-      width: 64px;
-      font-size: 10px;
-      border-radius: 12px;
-      margin: auto 4px;
-      /* background: #F5F5F5; */
-    }
-    .duedate {
-      width: 64px;
-      font-size: 10px;
-      border-radius: 12px;
-      margin: auto 4px
-    }
-    .status-label {
-      width: 72px;
-    /* background-color: #43ee; */
-  }
-    .bell-label {
-      width: 24px;
-      /* background-color: #999; */
-    }
-    .bell-label.last {
-      width: 24px;
-      /* background-color: #999; */
-    }
-  }
-  @media (max-width: 620px) {
-    .item-label {
-      width: 60px;
-      font-size: .6rem;
-      /* background: #eac853; */
-    }
-    .worker-profile-div {
-      width: 60px;
-      font-size: .6rem;
-      /* background: #d1ffbd; */
-    }
-    .short-label {
-      width: 60px;
-      font-size: .6rem;
-      /* background-color: #4433ee; */
-    }
-    .list-select-4 {
-      height: 16px;
-      width: 40px;
-      font-size: .6rem;
-      margin: auto 2px;
-      padding: 0;
-      /* background-color: #a0daa9; */
-    }
-    .list-select-3 {
-      height: 16px;
-      width: 40px;
-      font-size: .6rem;
-      margin: auto 2px;
-      padding: 0;
-      /* background-color: #a0daa9; */
-    }
-    .list-select-2 {
-      height: 16px;
-      width: 40px;
-      font-size: .6rem;
-      margin: auto 2px;
-      padding: 0;
-      /* background-color: #a0daa9; */
-    }
-    .list-select-1 {
-      height: 16px;
-      width: 40px;
-      font-size: .6rem;
-      margin: auto 2px;
-      padding: 0;
-      /* background-color: #a0daa9; */
-    }
-    .startdate {
-      width: 40px;
-      font-size: .5rem;
-      border-radius: 4px;
-      padding: 0;
-      margin: auto 4px;
-      /* background-color: #F5F5F5; */
-    }
-    .duedate {
-      width: 40px;
-      font-size: .5rem;
-      border-radius: 4px;
-      padding: 0;
-      margin: auto 4px;
-      background-color: #F5F5F5;
-    }
-    .duedate.red {
-      background-color: #f5f5f5;
-    }
-    .duedate.green {
-      background-color: #f5f5f5;
-    }
-    .status-complete-div {
-      display: flex;
-      flex-direction: row;
-      height: 8px;
-      width: 90%;
-      margin: 0 auto;
-      border-radius: 8px;
-      background-color: #F5F5F5;
-    }
-    .status-incomplete-div {
-      height: 8px;
-      border-radius: 8px;
-      /* background-color: #daf1e0; */
-      /* background-image: linear-gradient(to right, #ffdd33, #ff892e); */
-    }
-    .status-label {
-      width: 48px;
-      /* background-color: #43ee; */
-    }
-    .status-span {
-      font-size: .6rem;
-      /* background-color: #999; */
-    }
-    .bell-label {
-      width: 18px;
-      /* background-color: #43e; */
-    }
-    .bell-label.last {
-      width: 18px;
-      /* background-color: #43e; */
-    }
     .others-button {
       font-size: .6rem;
     }

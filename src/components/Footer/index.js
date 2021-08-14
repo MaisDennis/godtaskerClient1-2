@@ -19,7 +19,7 @@ function Footer() {
           </ul> */}
         </div>
         <div className="right-header-div">
-          <p className="footer-p">godtasker Inc. 2021, making you powerful</p>
+          <p className="footer-p">godtasker Inc. ©2021, making you powerful</p>
         </div>
       </footer>
     </Container>

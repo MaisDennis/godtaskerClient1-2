@@ -7,10 +7,11 @@ import Button from '../../Buttons'
 // -----------------------------------------------------------------------------
 function TaskList({
   defaultTasks,
-  handleTaskDetails, handleTest, handleListState,
+  handleTaskDetails, handleListState,
   listState, load,
   selectedTaskId, setListState, setSelectedTaskId, setTask, setTasks,
   tasks,
+  toggleContainer,
   user_id,
 }) {
 
@@ -51,10 +52,10 @@ function TaskList({
     }
   }
 
-  // function handleListState(number) {
-  //   load('', user_id, number);
-  //   setListState(number);
-  // }
+  function handleListState(number) {
+    load('', user_id, number);
+    setListState(number);
+  }
 
   const handleUpdateInput = async (input) => {
     const filteredList = defaultTasks.filter(t => {
@@ -201,32 +202,20 @@ function TaskList({
   }
   //----------------------------------------------------------------------------
   return (
-    <Container>
+    <Container toggleContainer={toggleContainer}>
       <header className='list-header'>
-        <div className="list-header-title-div">
-          {/* <strong className="list-header-strong">Task List:</strong> */}
-          {/* <div className="new-task-div">
-            <button
-              className="new-task-button"
-              onClick={() => setHeaderMenu(6)}
-            >New Task</button>
-          </div> */}
-        </div>
-
         <div className="sub-menu-div">
           <ul className="list-header-button-ul">
             { listState === 1
               ? (
                 <li><Button
                 type="04"
-                  // className="list-header-button selected"
                   onClick={() => handleListState(1)}
                 >Open</Button></li>
               )
               : (
                 <li><Button
                   type="05"
-                  // className="list-header-button"
                   onClick={() => handleListState(1)}
                 >Open</Button></li>
               )
@@ -236,14 +225,12 @@ function TaskList({
               ? (
                 <li><Button
                   type="04"
-                  // className="list-header-button selected"
                   onClick={() => handleListState(2)}
                 >Finished</Button></li>
               )
               : (
                 <li><Button
                   type="05"
-                  // className="list-header-button"
                   onClick={() => handleListState(2)}
                 >Finished</Button></li>
               )
@@ -252,14 +239,12 @@ function TaskList({
               ? (
                 <li><Button
                   type="04"
-                  // className="list-header-button selected"
                   onClick={() => handleListState(3)}
                 >Canceled</Button></li>
               )
               : (
                 <li><Button
                   type="05"
-                  // className="list-header-button"
                   onClick={() => handleListState(3)}
                 >Canceled</Button></li>
               )
@@ -297,55 +282,11 @@ function TaskList({
           <TaskLine
             key={t.id}
             handleTaskDetails={handleTaskDetails}
-            handleTest={handleTest}
-            selectArray={selectArray}
-            t={t}
             selectedTaskId={selectedTaskId}
-            user_id={user_id}
-            load={load}
+            t={t}
           />
         )}
       </ul>
-
-      {/* <div className="title-bar">
-        <strong className="title-strong" onClick={() => sortName()}>Tarefa
-          { toggleName
-            ? <TiArrowSortedUp style={{marginLeft: '8px'}}/>
-            : <TiArrowSortedDown style={{marginLeft: '8px', alignSelf: 'center'}}/>
-          }
-        </strong>
-        <strong className='title-strong' onClick={() => sortWorker()} style={{cursor:'pointer'}}>Funcionário
-          { toggleWorker
-            ? <TiArrowSortedUp style={{marginLeft: '8px'}}/>
-            : <TiArrowSortedDown style={{marginLeft: '8px', alignSelf: 'center'}}/>
-          }
-        </strong>
-        <strong className='short-tag' onClick={() => sortPrior()} style={{cursor:'pointer'}}>Prioridade
-        { togglePrior
-            ? <TiArrowSortedUp style={{marginLeft: '8px'}}/>
-            : <TiArrowSortedDown style={{marginLeft: '8px', alignSelf: 'center'}}/>
-          }
-        </strong>
-        <strong className='short-tag' onClick={() => sortUrgent()} style={{cursor:'pointer'}}>Urgência
-          { toggleUrgent
-            ? <TiArrowSortedUp style={{marginLeft: '8px'}}/>
-            : <TiArrowSortedDown style={{marginLeft: '8px', alignSelf: 'center'}}/>
-          }
-        </strong>
-        <strong className='short-tag'onClick={() => sortStartDate()} style={{cursor:'pointer'}}>Início
-          { toggleStartDate
-            ? <TiArrowSortedUp style={{marginLeft: '8px'}}/>
-            : <TiArrowSortedDown style={{marginLeft: '8px', alignSelf: 'center'}}/>
-          }
-        </strong>
-        <strong className='short-tag' onClick={() => sortDueDate()} style={{cursor:'pointer'}}>Prazo
-          { toggleDueDate
-            ? <TiArrowSortedUp style={{marginLeft: '8px'}}/>
-            : <TiArrowSortedDown style={{marginLeft: '8px', alignSelf: 'center'}}/>
-          }
-        </strong>
-
-      </div> */}
 
       {/* Task List */}
     </Container>

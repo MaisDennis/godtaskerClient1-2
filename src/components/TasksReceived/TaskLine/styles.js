@@ -306,70 +306,27 @@ export const Container = styled.div`
   @media (max-width: 620px) {
     .item-label {
       width: 60px;
-      font-size: .6rem;
+      font-size: 1rem;
       /* background: #eac853; */
     }
 
     .worker-profile-div {
       width: 60px;
-      font-size: .6rem;
+      font-size: 1rem;
       /* background: #d1ffbd; */
-    }
-
-    .short-label {
-      width: 60px;
-      font-size: .6rem;
-      /* background-color: #4433ee; */
-    }
-
-    .list-select-4 {
-      height: 16px;
-      width: 40px;
-      font-size: .6rem;
-      margin: auto 2px;
-      padding: 0;
-      /* background-color: #a0daa9; */
-    }
-
-    .list-select-3 {
-      height: 16px;
-      width: 40px;
-      font-size: .6rem;
-      margin: auto 2px;
-      padding: 0;
-      /* background-color: #a0daa9; */
-    }
-
-    .list-select-2 {
-      height: 16px;
-      width: 40px;
-      font-size: .6rem;
-      margin: auto 2px;
-      padding: 0;
-      /* background-color: #a0daa9; */
-    }
-
-    .list-select-1 {
-      height: 16px;
-      width: 40px;
-      font-size: .6rem;
-      margin: auto 2px;
-      padding: 0;
-      /* background-color: #a0daa9; */
     }
 
     .startdate {
       width: 40px;
-      font-size: .5rem;
+      font-size: 1rem;
       border-radius: 4px;
       padding: 0;
-      margin: auto 4px;
       /* background-color: #F5F5F5; */
     }
 
     .duedate {
       width: 40px;
-      font-size: .5rem;
+      font-size: 1rem;
       border-radius: 4px;
       padding: 0;
       margin: auto 4px;
@@ -387,364 +344,40 @@ export const Container = styled.div`
       display: flex;
       flex-direction: row;
       height: 8px;
-      width: 90%;
+      width: 80%;
       margin: 0 auto;
       border-radius: 8px;
-      background-color: #F5F5F5;
-    }
-
-    .status-incomplete-div {
-      height: 8px;
-      border-radius: 8px;
-      /* background-color: #daf1e0; */
-      /* background-image: linear-gradient(to right, #ffdd33, #ff892e); */
-    }
-
-    .status-label {
-      width: 48px;
-
-      /* background-color: #43ee; */
-    }
-
-    .status-span {
-      font-size: .6rem;
-      /* background-color: #999; */
-    }
-
-    .bell-label {
-      width: 18px;
-      /* background-color: #43e; */
-    }
-
-    .bell-label.last {
-      width: 18px;
-      /* background-color: #43e; */
-    }
-
-    .others-button {
-      font-size: .6rem;
-    }
-  }
-`;
-
-export const Line = styled.div`
-  .line-div {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    height: auto;
-    min-height: 66px;
-    width: 100%;
-    border-radius: 4px;
-    border: 1px solid #ddd;
-    padding: 4px 0;
-    margin: 4px 0;
-    background-color: #fff;
-    /* background: #d1ffbd; */
-  }
-  .line-div.canceled {
-    background-color: #F5F5F5;
-  }
-  .line-div.selected {
-    border: 2px solid #666;
-  }
-  .line-div.canceled.selected {
-    border: 2px solid #666;
-  }
-  .worker-profile-div {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 330px;
-    /* background: #d1ffbd; */
-  }
-  img {
-    height: 48px;
-    width: 48px;
-    border-radius: 50%;
-    margin: 4px 8px;
-  }
-  .item-label {
-    width: 220px;
-    max-width: 220px;
-    overflow: hidden;
-    /* background: #eac853; */
-  }
-
-  .dates-wrapper {
-    display: flex;
-    flex-direction: column;
-    width: 90%;
-    margin: 8px 0 4px;
-    /* background-color: #e22; */
-  }
-
-  .dates-div {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    /* width: 100%; */
-    margin: 0 8px;
-    /* background-color: #e22; */
-  }
-
-  .due-date-div {
-    width: auto;
-    /* background-color: #ea3; */
-  }
-
-  .due-date-label {
-    margin-right: 4px;
-    /* background-color: #4ee; */
-  }
-
-  .startdate {
-    width: 102px;
-    border-radius: 24px;
-    padding: 4px;
-    margin: 0 4px;
-    background-color: #f9f9f9;
-  }
-  .startdate.green {
-    background-color: #009966;
-  }
-  .duedate {
-    width: 102px;
-    max-width: 110px;
-    border-radius: 24px;
-    padding: 4px;
-    margin: auto 4px;
-  }
-  .duedate.red {
-    /* background-color: #EE204D; */
-    background-color: #f64C75;
-  }
-  .duedate.green {
-    background-color: #009966;
-    /* background-color: #BCDF8A; */
-  }
-  .status-wrapper {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: 110px;
-    max-width: 110px;
-    margin: auto 0;
-    /* background-color: #443e; */
-  }
-  .status-complete-div {
-    display: flex;
-    flex-direction: row;
-    height: 12px;
-    width: 90%;
-    margin: 0 auto;
-    border-radius: 8px;
-    background-color: #F5F5F5;
-  }
-  .status-incomplete-div {
-    height: 12px;
-    border-radius: 8px;
-    /* background-color: #daf1e0; */
-    background-image: linear-gradient(to right, #ffdd33, #ff892e);
-  }
-  .status-span {
-    position: relative;
-    font-size: 12px;
-    /* background-color: #999; */
-  }
-  .bell-label {
-    display: flex;
-    align-items: center;
-    width: 48px;
-    /* background-color: #43e; */
-  }
-  .bell-label.last {
-    display: flex;
-    align-items: center;
-    width: 48px;
-    /* margin-right: 12px; */
-    /* background-color: #999; */
-  }
-  @media (max-width: 1400px) {
-    /* padding: 4px; */
-    .item-label {
-      width: 80px;
-      font-size: .8rem;
-      /* background: #eac853; */
-    }
-    .worker-profile-div {
-      width: 80px;
-      font-size: .8rem;
-      /* background: #d1ffbd; */
-    }
-    img {
-      height: 24px;
-      width: 24px;
-      border-radius: 50%;
-      margin: 1px;
-    }
-    .short-label {
-      width: 72px;
-      font-size: .8rem;
-      /* background-color: #4433ee; */
-    }
-    .list-select-4 {
-      height: 16px;
-      width: 64px;
-      font-size: 12px;
-      margin: auto 4px;
-      /* background-color: #a0daa9; */
-    }
-    .list-select-3 {
-      height: 16px;
-      width: 64px;
-      font-size: 12px;
-      margin: auto 4px;
-      /* background-color: #a0daa9; */
-    }
-    .list-select-2 {
-      height: 16px;
-      width: 64px;
-      font-size: 12px;
-      margin: auto 4px;
-      /* background-color: #a0daa9; */
-    }
-    .list-select-1 {
-      height: 16px;
-      width: 64px;
-      font-size: 12px;
-      margin: auto 4px;
-      /* background-color: #a0daa9; */
-    }
-    .startdate {
-      width: 64px;
-      font-size: 10px;
-      border-radius: 12px;
-      margin: auto 4px;
-      /* background: #F5F5F5; */
-    }
-    .duedate {
-      width: 64px;
-      font-size: 10px;
-      border-radius: 12px;
-      margin: auto 4px
-    }
-    .status-label {
-      width: 72px;
-    /* background-color: #43ee; */
-  }
-    .bell-label {
-      width: 24px;
-      /* background-color: #999; */
-    }
-    .bell-label.last {
-      width: 24px;
-      /* background-color: #999; */
-    }
-  }
-  @media (max-width: 620px) {
-    .item-label {
-      width: 60px;
-      font-size: .6rem;
-      /* background: #eac853; */
-    }
-    .worker-profile-div {
-      width: 60px;
-      font-size: .6rem;
-      /* background: #d1ffbd; */
-    }
-    .short-label {
-      width: 60px;
-      font-size: .6rem;
-      /* background-color: #4433ee; */
-    }
-    .list-select-4 {
-      height: 16px;
-      width: 40px;
-      font-size: .6rem;
-      margin: auto 2px;
-      padding: 0;
-      /* background-color: #a0daa9; */
-    }
-    .list-select-3 {
-      height: 16px;
-      width: 40px;
-      font-size: .6rem;
-      margin: auto 2px;
-      padding: 0;
-      /* background-color: #a0daa9; */
-    }
-    .list-select-2 {
-      height: 16px;
-      width: 40px;
-      font-size: .6rem;
-      margin: auto 2px;
-      padding: 0;
-      /* background-color: #a0daa9; */
-    }
-    .list-select-1 {
-      height: 16px;
-      width: 40px;
-      font-size: .6rem;
-      margin: auto 2px;
-      padding: 0;
-      /* background-color: #a0daa9; */
-    }
-    .startdate {
-      width: 40px;
-      font-size: .5rem;
-      border-radius: 4px;
-      padding: 0;
-      margin: auto 4px;
       /* background-color: #F5F5F5; */
     }
-    .duedate {
-      width: 40px;
-      font-size: .5rem;
-      border-radius: 4px;
-      padding: 0;
-      margin: auto 4px;
-      background-color: #F5F5F5;
-    }
-    .duedate.red {
-      background-color: #f5f5f5;
-    }
-    .duedate.green {
-      background-color: #f5f5f5;
-    }
-    .status-complete-div {
-      display: flex;
-      flex-direction: row;
-      height: 8px;
-      width: 90%;
-      margin: 0 auto;
-      border-radius: 8px;
-      background-color: #F5F5F5;
-    }
+
     .status-incomplete-div {
       height: 8px;
       border-radius: 8px;
       /* background-color: #daf1e0; */
       /* background-image: linear-gradient(to right, #ffdd33, #ff892e); */
     }
+
     .status-label {
       width: 48px;
+
       /* background-color: #43ee; */
     }
+
     .status-span {
-      font-size: .6rem;
+      font-size: .7rem;
       /* background-color: #999; */
     }
+
     .bell-label {
       width: 18px;
       /* background-color: #43e; */
     }
+
     .bell-label.last {
       width: 18px;
       /* background-color: #43e; */
     }
+
     .others-button {
       font-size: .6rem;
     }

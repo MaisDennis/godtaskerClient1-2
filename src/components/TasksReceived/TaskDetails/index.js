@@ -9,12 +9,13 @@ import {
 } from 'date-fns/locale';
 //------------------------------------------------------------------------------
 import { Container } from './styles'
+import Button from '../../Buttons'
 
 function TaskDetails({
   listState,
   load,
-  setEditTask,
-  task,
+  setEditTask, setToggleContainer,
+  task, toggleContainer,
   user_id,
 }) {
   // const { register, handleSubmit } = useForm();
@@ -36,7 +37,7 @@ function TaskDetails({
     });
   //----------------------------------------------------------------------------
   return (
-    <Container>
+    <Container toggleContainer={toggleContainer}>
       <header className="details-header-div">
         <div className="details-title-div">
           <MdAssignment size={20} color={'#334466'}/>
@@ -47,6 +48,12 @@ function TaskDetails({
             <label className="received-task-label">
               To Update Received Tasks, please download the mobile app.
             </label>
+            <div className="back-button">
+              <Button
+                type="03"
+                onClick={() => setToggleContainer(1)}
+              >Back</Button>
+            </div>
           </div>
         )}
         {listState === 2 && (
@@ -54,6 +61,12 @@ function TaskDetails({
             <label className="received-task-label">
               To Update Received Tasks, please download the mobile app.
             </label>
+            <div className="back-button">
+              <Button
+                type="03"
+                onClick={() => setToggleContainer(1)}
+              >Back</Button>
+            </div>
           </div>
         )}
         {listState === 3 && (
@@ -61,6 +74,12 @@ function TaskDetails({
             <label className="received-task-label">
               To Update Received Tasks, please download the mobile app.
             </label>
+            <div className="back-button">
+              <Button
+                type="03"
+                onClick={() => setToggleContainer(1)}
+              >Back</Button>
+            </div>
           </div>
         )}
       </header>

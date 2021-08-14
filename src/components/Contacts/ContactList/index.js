@@ -5,11 +5,12 @@ import Contact from '../Contact'
 import Searchbar from '~/components/Searchbar';
 //------------------------------------------------------------------------------
 export default function ContactList({
-  defaultContacts,
   contacts,
+  defaultContacts,
   handleContactSelect,
   selectedContactId,
   setContacts,
+  toggleContainer,
 }) {
   const [inputState, setInputState] = useState('');
 
@@ -23,7 +24,7 @@ export default function ContactList({
   }
   //----------------------------------------------------------------------------
   return (
-    <Container>
+    <Container toggleContainer={toggleContainer}>
       <header className='contact-header'>
         <div className='list-header-div'>
           <Searchbar

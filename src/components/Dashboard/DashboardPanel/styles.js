@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
+  overflow: hidden;
   height: auto;
   width: 50%;
   padding: 8px;
@@ -11,6 +11,10 @@ export const Container = styled.div`
   margin: 4px 2px 4px 4px;
   background-color: #fff;
   /* background-color: #ee3; */
+
+  .buttons-view {
+    display: none;
+  }
 
   .block-large-boss {
     display: flex;
@@ -29,7 +33,6 @@ export const Container = styled.div`
   .block-large-worker {
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
     width: 100%;
     border-radius: 8px;
     border-style: solid;
@@ -43,10 +46,8 @@ export const Container = styled.div`
   .block-small-boss {
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
     height: auto;
     width: 85px;
-    /* width: auto; */
     border-radius: 8px;
     border-style: solid;
     border-width: 1px;
@@ -60,9 +61,7 @@ export const Container = styled.div`
   .block-small-worker {
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
     height: auto;
-    /* width: 100%; */
     width: 85px;
     border-radius: 8px;
     border-style: solid;
@@ -81,8 +80,6 @@ export const Container = styled.div`
     justify-content: center;
     height: auto;
     margin: 8px auto;
-    /* padding: 8px; */
-
     /* background-color: #f5f5f5; */
     /* background-color: #ee3; */
   }
@@ -292,7 +289,112 @@ export const Container = styled.div`
     /* background-color: #f00; */
   }
 
+  @media (max-width: 1400px) {
+  }
 
+  @media (max-width: 620px) {
+    display: ${({ toggleContainer }) => (
+      toggleContainer === 1 ? 'block' : 'none'
+    )};
+    height: 92vh;
+    width: 100%;
+    margin: 4px 0;
+    /* background-color: #f00; */
 
+    .buttons-view {
+      display: flex;
+      justify-content: flex-end;
+      /* background-color: #999; */
+    }
 
+    .block-large-boss {
+      width: 100%;
+    }
+
+    .block-large-worker {
+      width: 100%;
+    }
+
+    .block-small-boss {
+      width: 80px;
+      /* background-color: #666; */
+    }
+
+    .block-small-worker {
+      width: 80px;
+      /* background-color: #4433ee; */
+    }
+  }
+
+  @media (max-width: 350px) {
+
+    .block-small-boss {
+      width: 70px;
+      /* background-color: #666; */
+    }
+
+    .block-small-worker {
+      width: 70px;
+      /* background-color: #4433ee; */
+    }
+
+    .label-bold-red {
+      /* width: 14px; */
+      font-size: 10px;
+      margin: 0 18px;
+      /* background-color: #4433ee; */
+    }
+
+    .label-bold-boss2 {
+      /* width: 14px; */
+      font-size: 10px;
+      margin: 0 18px;
+      /* background-color: #4433ee; */
+    }
+
+    .label-bold-worker2 {
+      /* width: 14px; */
+      font-size: 10px;
+      margin: 0 18px;
+      /* background-color: #4433ee; */
+    }
+
+    .hrLine-boss {
+      width: 50px;
+    }
+
+    .hrLine-worker {
+      width: 50px;
+    }
+
+    .label-small-red {
+      font-size: 10px;
+      width: 50px;
+    }
+
+    .label-small-boss2 {
+      font-size: 10px;
+      width: 50px;
+    }
+
+    .label-small-boss {
+      font-size: 10px;
+      width: 50px;
+    }
+
+    .label-small-worker2 {
+      font-size: 10px;
+      width: 50px;
+    }
+
+    .label-small-worker {
+      font-size: 10px;
+      width: 50px;
+    }
+
+    .block-segment {
+      /* width: 90%; */
+      /* background-color: #999; */
+    }
+  }
 `;

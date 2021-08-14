@@ -5,6 +5,7 @@ export const Container = styled.div`
   width: 50%;
   padding: 8px;
   margin: 4px 2px 4px 4px;
+  overflow: hidden;
   background-color: #fff;
   /* background-color: #5edc1f; */
 
@@ -21,7 +22,7 @@ export const Container = styled.div`
     align-items: center;
     justify-content: space-between;
     width: auto;
-    margin: 0;
+    margin: 2px 0;
     /* background-color: #222; */
   }
 
@@ -31,33 +32,6 @@ export const Container = styled.div`
     margin: 0 4px;
     color: #000;
     /* background-color: #4433ee; */
-  }
-
-  .task-button {
-    height: 28px;
-    width: 84px;
-    font-size: 12px;
-    font-weight: bold;
-    margin: 4px 0;
-    padding: 4px;
-    border: none;
-    border-radius: 4px;
-    transition: background-color 0.2s;
-    color: #fff;
-  }
-
-  .task-button.blue {
-    background-color: #000;
-    margin-right: 8px;
-    &:hover {
-      background-color: ${lighten(0.2, '#000')};
-    }
-  }
-  .task-button.grey {
-    background-color: #666;
-    &:hover {
-      background-color: ${lighten(0.2, '#666')};
-    }
   }
 
   .list-header-title-div {
@@ -84,7 +58,45 @@ export const Container = styled.div`
   .list-header-div {
     display: flex;
     width: 100%;
-    margin: 4px 0 8px;
+    margin: 0 0 8px;
     background: #a0daa9;
+  }
+
+  .contact-list {
+    height: 100%;
+    border-radius: 4px;
+    overflow-y: scroll;
+    ::-webkit-scrollbar {
+      width: 4px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #ccc;
+    }
+    padding-bottom: 60px;
+    /* background-color: #e3e; */
+  }
+
+  @media (max-width: 1400px) {
+    .list-header-strong {
+      font-size: .8rem;
+    }
+  }
+
+  @media (max-width: 620px) {
+    /* display: ${({ toggleContainer }) => (
+      toggleContainer === 2 ? 'block' : 'none'
+    )}; */
+    height: 92vh;
+    width: 100%;
+    margin: 4px 0;
+    /* background-color: #f00; */
+
+    .list-header-strong {
+      font-size: .8rem;
+    }
+
+    .contact-list {
+      padding-bottom: 80px;
+    }
   }
 `;

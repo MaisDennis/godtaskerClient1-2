@@ -10,6 +10,7 @@ import api from '~/services/api';
 // -----------------------------------------------------------------------------
 export default function TaskContainer({ setHeaderMenu }) {
   const user_id = useSelector(state => state.user.profile.id)
+  const update_tasks = useSelector(state => state.task.tasks.data)
 
   const [defaultTasks, setDefaultTasks] = useState([]);
   const [listState, setListState] = useState(1);
@@ -17,12 +18,13 @@ export default function TaskContainer({ setHeaderMenu }) {
   const [task, setTask] = useState();
   const [tasks, setTasks] = useState([]);
   const [editTask, setEditTask] = useState();
+  const [toggleContainer, setToggleContainer] = useState(1);
 
   let response = null
 
   useEffect(() => {
     load('', user_id, 1);
-  }, []);
+  }, [update_tasks]);
 
   async function load(workerNameFilter, userID, listState) {
     switch(listState) {
@@ -80,11 +82,12 @@ export default function TaskContainer({ setHeaderMenu }) {
       sub_task_list: editedSubTaskList,
     })
     setTask(t);
+    setToggleContainer(2)
   }
 
   // ---------------------------------------------------------------------------
   return (
-    <Container>
+    <Container toggleContainer={toggleContainer}>
       { editTask
         ? (
           <TasksEdit
@@ -107,6 +110,7 @@ export default function TaskContainer({ setHeaderMenu }) {
               setTasks={setTasks}
               task={task}
               tasks={tasks}
+              toggleContainer={toggleContainer}
               user_id={user_id}
             />
 
@@ -116,7 +120,9 @@ export default function TaskContainer({ setHeaderMenu }) {
                   listState={listState}
                   load={load}
                   setEditTask={setEditTask}
+                  setToggleContainer={setToggleContainer}
                   task={task}
+                  toggleContainer={toggleContainer}
                   user_id={user_id}
                 />
               )

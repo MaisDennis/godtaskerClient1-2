@@ -10,7 +10,9 @@ import api from '~/services/api';
 import { Container } from './styles';
 import { updateTasks } from '~/store/modules/task/actions';
 // -----------------------------------------------------------------------------
-export default function TasksEdit({ load, setEditTask, task, worker_id }) {
+export default function TasksEdit({
+  setEditTask, task,
+}) {
   const [initialTaskData, setInitialTaskData] = useState([]);
   const [taskName, setTaskName] = useState();
   const [taskDescription, setTaskDescription] = useState();
@@ -118,7 +120,7 @@ export default function TasksEdit({ load, setEditTask, task, worker_id }) {
 
   const { register, handleSubmit } = useForm();
 
-  const onSubmit = ({ name, description, start_date, due_date }) => {
+  const onSubmit = async ({ name, description, start_date, due_date }) => {
     const timeStart = parseISO(start_date);
     const timeEnd = parseISO(due_date);
 
@@ -146,15 +148,14 @@ export default function TasksEdit({ load, setEditTask, task, worker_id }) {
     } else {
       weigeToPercentage(subTasks)
 
-      api.put(`tasks/${task_id}/notification/user`, {
+      await api.put(`tasks/${task_id}/notification/user`, {
         name,
         description,
         sub_task_list: subTasks,
         start_date,
         due_date,
       });
-      dispatch(updateTasks(new Date()))
-      load('', worker_id, 1);
+      dispatch(updateTasks(new Date())) // this resets load tasks after edit
       // history.push('/');
       toast.success('Tarefa alterada com sucesso!');
     }

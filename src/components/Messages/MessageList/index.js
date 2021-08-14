@@ -23,6 +23,7 @@ function MessageList({
   setContact, setFollowers, setFollowing,
   setListState, setMessage, setMessages,
   setSelectedContactId, setSelectedMessageId,
+  toggleContainer,
 }) {
   const [inputState, setInputState] = useState('');
   console.log(defaultMessages)
@@ -69,7 +70,7 @@ function MessageList({
   }
   //----------------------------------------------------------------------------
   return (
-    <Container>
+    <Container toggleContainer={toggleContainer}>
       <header className='message-header'>
         <div className="list-header-title-div">
 
@@ -79,7 +80,6 @@ function MessageList({
               ? (
                 <li><Button
                   type="04"
-                  // className="list-header-button selected"
                   onClick={() => handleListState(0)}
                 >Active</Button></li>
               )
@@ -96,14 +96,12 @@ function MessageList({
               ? (
                 <li><Button
                   type="04"
-                  // className="list-header-button selected"
                   onClick={() => handleListState(1)}
                 >Following</Button></li>
               )
               : (
                 <li><Button
                   type="05"
-                  // className="list-header-button"
                   onClick={() => handleListState(1)}
                 >Following</Button></li>
               )
@@ -113,14 +111,12 @@ function MessageList({
               ? (
                 <li><Button
                   type="04"
-                  // className="list-header-button selected"
                   onClick={() => handleListState(2)}
                 >Followed</Button></li>
               )
               : (
                 <li><Button
                   type="05"
-                  // className="list-header-button"
                   onClick={() => handleListState(2)}
                 >Followed</Button></li>
               )

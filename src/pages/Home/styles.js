@@ -7,15 +7,12 @@ export const Container = styled.div`
   width: 100%;
   font-weight: normal;
   background-color: #fff;
-  /* background-color: #a0d; */
+  background-color: #a0d;
 
   .container-div {
     display: flex;
     flex-direction: row;
     width: 100%;
-    /* border-radius: 8px; */
-    /* border: 1px solid #000; */
-    /* padding: 4px; */
     background-color: #ddd;
     /* background-color: #F5F; */
   }
@@ -23,7 +20,6 @@ export const Container = styled.div`
     width: 50%;
     height: auto;
     margin: 4px 2px 4px 4px;
-    /* padding: 12px; */
     /* background: #a0d9; */
   }
   .container-div.right {
@@ -39,13 +35,16 @@ export const Container = styled.div`
 
   @media (max-width: 620px) {
     flex-direction: column;
+    overflow-y: visible;
 
     .container-div.left {
       width: 100%;
+      margin: 0;
       /* background: #a0d9; */
     }
     .container-div.right {
       width: 100%;
+      margin: 0;
       /* background: #a044; */
     }
   }

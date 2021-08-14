@@ -13,11 +13,14 @@ import insert from '~/assets/insert_photo-24px.svg';
 import firebase from '~/services/firebase'
 import ChatMessage from '../ChatMessage'
 import Searchbar from '~/components/Searchbar';
+import Button from '../../Buttons'
 
 function MessageDiv({
   loadFollowers, loadFollowing, loadMessages,
   message,
   setForwardValue,
+  setToggleContainer,
+  toggleContainer,
 }) {
   const user_id = useSelector(state => state.user.profile.id);
 
@@ -219,7 +222,7 @@ function MessageDiv({
   }
   //----------------------------------------------------------------------------
   return (
-    <Container>
+    <Container toggleContainer={toggleContainer}>
       <header className='message-header'>
         {/* <strong className="message-header-strong">Chat:</strong> */}
         <div className="list-header">
@@ -276,48 +279,61 @@ function MessageDiv({
               )
             }
           </div>
+          <div className="buttons-div">
+            <div className="buttons-wrapper">
 
-          <div className="message-menu-div">
-            <button
-              className="message-menu-button"
-              onClick={() => handleToggleMessageSearch()}
-            >
-              <MdSearch
-                className='message-menu-icon'
-                size={20}
-                color='#fff'
-              />
-            </button>
-            <div className="others-menu-div">
+            </div>
+            <div className="message-menu-div">
               <button
                 className="message-menu-button"
-                onClick={() => setToggleHeaderDropMenu(!toggleHeaderDropMenu)}
+                onClick={() => handleToggleMessageSearch()}
               >
-                <MdMoreVert
+                <MdSearch
                   className='message-menu-icon'
                   size={20}
                   color='#fff'
-
                 />
               </button>
-              { toggleHeaderDropMenu
-                ? (
-                  <ul
-                    className="others-drop-menu-ul"
-                    // className="message-dropMenu-ul"
-                  >
-                    <li className="others-drop-menu-li">
-                      <button className="others-drop-menu-button"
-                        onClick={() => handleClearMessages()}
-                      >Limpar a conversa</button>
-                    </li>
-                  </ul>
-                )
-                : (
-                  null
-                )
-              }
+              <div className="others-menu-div">
+                <button
+                  className="message-menu-button"
+                  onClick={() => setToggleHeaderDropMenu(!toggleHeaderDropMenu)}
+                >
+                  <MdMoreVert
+                    className='message-menu-icon'
+                    size={20}
+                    color='#fff'
+
+                  />
+                </button>
+                { toggleHeaderDropMenu
+                  ? (
+                    <ul
+                      className="others-drop-menu-ul"
+                      // className="message-dropMenu-ul"
+                    >
+                      <li className="others-drop-menu-li">
+                        <button className="others-drop-menu-button"
+                          onClick={() => handleClearMessages()}
+                        >Limpar a conversa</button>
+                      </li>
+                    </ul>
+                  )
+                  : (
+                    null
+                  )
+                }
+              </div>
             </div>
+            <div className="mobile-back-div">
+              <Button
+                type="03"
+                onClick={() => setToggleContainer(1)}
+              >
+                Back
+              </Button>
+            </div>
+
           </div>
         </div>
       </header>

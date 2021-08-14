@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import { Container } from './styles'
 import api from '~/services/api';
 import Contact from '~/components/Contacts/Contact'
+import Button from '../../Buttons'
 import Searchbar from '~/components/Searchbar';
 //------------------------------------------------------------------------------
 export default function DashboardFollowers({
@@ -42,10 +43,10 @@ export default function DashboardFollowers({
       <header className='contact-header'>
          <div className="sub-tasks-buttons-div">
           <label className="title-label">Followers</label>
-          <button
-            className="task-button grey"
+          <Button
+            type="03"
             onClick={() => setListState(0)}
-          >Back</button>
+          >Back</Button>
 
         </div>
 

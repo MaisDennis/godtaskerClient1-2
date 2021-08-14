@@ -6,6 +6,7 @@ import React, {
 import { useSelector } from 'react-redux';
 import { FiInstagram, FiLinkedin } from 'react-icons/fi';
 // -----------------------------------------------------------------------------
+import Button from '../../Buttons'
 import { Container } from './styles';
 import insert from '~/assets/insert_photo-24px.svg';
 import api from '~/services/api';
@@ -20,6 +21,8 @@ export default function ContactProfile({
   setFollowButtonTrigger,
   setFollowIndividual,
   setListState,
+  setToggleContainer,
+  toggleContainer,
 }) {
   const user_id = useSelector(state => state.user.profile.id);
 
@@ -93,14 +96,17 @@ export default function ContactProfile({
   }
   // ---------------------------------------------------------------------------
   return (
-    <Container>
+    <Container toggleContainer={toggleContainer}>
       <div className="profile-header">
         { previousListState
           ? (
-          <button
-            className="task-button grey"
-            onClick={() => setListState(previousListState)}
-          >Back</button>
+            <Button
+              type="03"
+              onClick={() => {
+                setListState(previousListState)
+                setToggleContainer(1)
+              }}
+            >Back</Button>
           )
           : (
             null
@@ -109,16 +115,52 @@ export default function ContactProfile({
         }
         { followIndividual !== undefined
           ? (
-            <button
-              className="following-button"
+            <Button
+              type="06"
               onClick={handleStopFollow}
-            >Following</button>
+            >Following</Button>
           )
           : (
-            <button
-              className="follow-button"
+            <Button
+              type="07"
               onClick={handleStartFollow}
-            >Follow</button>
+            >Follow</Button>
+          )
+        }
+      </div>
+
+      <div className="profile-header-mobile">
+        { previousListState
+          ? (
+            <Button
+              type="03"
+              onClick={() => {
+                setListState(previousListState)
+              }}
+            >Back</Button>
+          )
+          : (
+            <Button
+            type="03"
+            onClick={() => {
+              setToggleContainer(1)
+            }}
+          >Back</Button>
+          )
+
+        }
+        { followIndividual !== undefined
+          ? (
+            <Button
+              type="06"
+              onClick={handleStopFollow}
+            >Following</Button>
+          )
+          : (
+            <Button
+              type="07"
+              onClick={handleStartFollow}
+            >Follow</Button>
           )
         }
       </div>

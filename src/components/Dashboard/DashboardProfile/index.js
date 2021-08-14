@@ -5,9 +5,12 @@ import { FiInstagram, FiLinkedin } from 'react-icons/fi';
 // -----------------------------------------------------------------------------
 import { Container } from './styles';
 import insert from '~/assets/insert_photo-24px.svg';
+import Button from '../../Buttons'
 import api from '~/services/api';
 // -----------------------------------------------------------------------------
-export default function DashboardProfile({ setListState }) {
+export default function DashboardProfile({
+  setListState, setToggleContainer, toggleContainer,
+}) {
   const reduxUser = useSelector(state => state.user.profile)
   const reduxWorker = useSelector(state => state.worker.profile)
   const user_id = reduxUser.id
@@ -35,8 +38,14 @@ export default function DashboardProfile({ setListState }) {
   }
   // ---------------------------------------------------------------------------
   return (
-    <Container>
+    <Container toggleContainer={toggleContainer}>
       <div className="content-wrapper">
+        <div className="back-button">
+          <Button
+            type="03"
+            onClick={() => setToggleContainer(1)}
+          >Back</Button>
+        </div>
         <div className="header">
           <div className="left-div">
             <Link to="/profile">
@@ -68,23 +77,31 @@ export default function DashboardProfile({ setListState }) {
             </div>
             <div className="followers-div">
               <div className="followers-tag">
-                <button className="followers-button" onClick={() => setListState(2)}>
+                <Button
+                  type="07"
+                  // className="followers-button"
+                  onClick={() => setListState(2)}
+                >
                   { countFollowers
                     ? <label htmlFor="" className="number-label">{countFollowers}</label>
                     : <label htmlFor="" className="number-label">0</label>
                   }
                 <label htmlFor="" className="followers-label">Followers</label>
-                </button>
+                </Button>
 
               </div>
               <div className="followers-tag">
-                <button className="followers-button" onClick={() => setListState(1)}>
+                <Button
+                  type="07"
+                  className="followers-button"
+                  onClick={() => setListState(1)}
+                >
                   { countFollowing
                     ? <label htmlFor="" className="number-label">{countFollowing}</label>
                     : <label htmlFor="" className="number-label">0</label>
                   }
                   <label htmlFor="" className="followers-label">Following</label>
-                </button>
+                </Button>
               </div>
 
             </div>
@@ -122,7 +139,6 @@ export default function DashboardProfile({ setListState }) {
 
         </div>
       </div>
-
     </Container>
   )
 }

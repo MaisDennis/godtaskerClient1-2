@@ -14,6 +14,7 @@ import TasksCreate from '~/components/TasksCreate';
 export default function ListTasks() {
     // var devices = navigator.mediaDevices.getUserMedia({audio:true})
   const [ headerMenu, setHeaderMenu ] = useState(1);
+  const [ toggleMobileChat, setToggleMobileChat] = useState(false);
   // ---------------------------------------------------------------------------
   return (
     <>
@@ -23,7 +24,7 @@ export default function ListTasks() {
       />
 
       <Container>
-        <div className="container-div left">
+        <div className="container-div left" id="mobileMain">
           { headerMenu === 0 && (
             <TasksCreate
               setHeaderMenu={setHeaderMenu}
@@ -43,12 +44,12 @@ export default function ListTasks() {
           { headerMenu === 5 && (<ContactContainer/>)}
         </div>
 
-        <div className="container-div right">
+        <div className="container-div right" id="mobileMessage">
           <MessageContainer/>
         </div>
       </Container>
 
-      <Footer/>
+      {/* <Footer/> */}
     </>
   );
 }

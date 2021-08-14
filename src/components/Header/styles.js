@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import { darken } from 'polished';
+import { Link as LinkS } from 'react-scroll'
+import { FaTimes } from 'react-icons/fa';
 
 export const Container = styled.div`
   display: flex;
@@ -17,6 +19,10 @@ export const Container = styled.div`
     /* background-color: #5edc1f; */
   }
 
+  .mobile-chat-button-div {
+   display: none;
+  }
+
   .image-logo {
     height: 32px;
     width: auto;
@@ -24,13 +30,29 @@ export const Container = styled.div`
     /* background: #4433ee; */
   }
 
+  .button-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10%;
+    margin: 0;
+    /* background-color: #5e3; */
+  }
+
+  .button-mobile-div {
+    display: none;
+  }
+
+
+
   .header-menu {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 50%;
+    width: 40%;
     margin: 0;
     /* background-color: #5edc; */
+
   }
   .header-menu-item {
     display: inline;
@@ -152,23 +174,126 @@ export const Container = styled.div`
     background: #F5F5F5;
   }
 
+  .mobile-sidebar {
+    display: none;
+  }
+
   @media (max-width: 1400px) {
     width: 90%;
-    height: 15vh;
+    /* height: 15vh; */
   }
 
   @media (max-width: 620px) {
-    width: 98%;
-    margin: 0 auto;
+    display: block;
+    position: fixed;
+    justify-content: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
     /* background-color: #f5f5f5; */
+
+    .header-wrapper {
+      justify-content: space-between;
+    }
+
+    .button-div {
+      display: none;
+    }
+
+    .button-mobile-div {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      width: 20%;
+      /* background-color: #4ee; */
+    }
 
     .image-logo {
       display: none;
-      /* background: #5edc1f; */
+    }
+
+    .header-menu {
+      display: none;
+    }
+
+    .header-aside {
+      display: none;
+    }
+
+    .mobile-sidebar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 20%;
+      /* background-color: #666; */
+    }
+
+    .icon-div {
+      /* background-color: #4433ee; */
+    }
+
+    .icon-close-div {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-end;
+      height: 8vh;
+      margin-right: 22px;
+      /* background-color: #666; */
+    }
+
+    .sidebar-div {
+      position: fixed;
+      z-index: 9;
+      height: auto;
+      width: 100%;
+      transition: 1 ease-in-out;
+      background-color: #1B2432;
+      /* background-color: #4ee; */
+
+    }
+
+    .sidebar-menu {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 8px 0;
+      /* background-color: #999; */
     }
 
     .header-menu-item {
-      margin: 0 6px;
+      padding: 8px 0;
+      width: 100%;
+    }
+
+    .header-button {
+      width: 100%;
+      /* background-color: #f00; */
+    }
+
+    .header-label {
+      font-size: 21px;
+    }
+
+    .header-label-selected {
+      font-size: 21px;
+    }
+
+    .mobile-chat-button-div {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      width: 60%;
+      /* background-color: #ee3; */
     }
   }
+`;
+
+export const ScrollLink = styled(LinkS)`
+  margin: 8px auto;
+  cursor: pointer;
+  /* background-color: #f00; */
 `;

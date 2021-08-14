@@ -18,6 +18,7 @@ export default function TaskContainer({ setHeaderMenu }) {
   const [task, setTask] = useState();
   const [tasks, setTasks] = useState([]);
   const [editTask, setEditTask] = useState();
+  const [toggleContainer, setToggleContainer] = useState(1);
 
   let response = null
 
@@ -48,13 +49,6 @@ export default function TaskContainer({ setHeaderMenu }) {
         setTasks(response.data); setDefaultTasks(response.data);
         setTask(response.data[0]); setSelectedTaskId(response.data[0] && response.data[0].id);
         break
-      // case(4):
-      //   response = await api.get(`tasks`, {
-      //     params: { workerNameFilter, userID }
-      //   })
-      //   setTasks(response.data); setDefaultTasks(response.data);
-      //   setTask(response.data[0]); setSelectedTaskId(response.data[0] && response.data[0].id);
-      //   break
       default:
         response = await api.get(`tasks/unfinished`, {
           params: { workerID },
@@ -81,11 +75,12 @@ export default function TaskContainer({ setHeaderMenu }) {
       sub_task_list: editedSubTaskList,
     })
     setTask(t);
+    setToggleContainer(2)
   }
 
   // ---------------------------------------------------------------------------
   return (
-    <Container>
+    <Container toggleContainer={toggleContainer}>
       { editTask
         ? (
           <TasksEdit
@@ -110,6 +105,7 @@ export default function TaskContainer({ setHeaderMenu }) {
               setTasks={setTasks}
               task={task}
               tasks={tasks}
+              toggleContainer={toggleContainer}
               user_id={user_id}
             />
 
@@ -119,7 +115,9 @@ export default function TaskContainer({ setHeaderMenu }) {
                   listState={listState}
                   load={load}
                   setEditTask={setEditTask}
+                  setToggleContainer={setToggleContainer}
                   task={task}
+                  toggleContainer={toggleContainer}
                   user_id={user_id}
                 />
               )

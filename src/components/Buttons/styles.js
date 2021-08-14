@@ -4,6 +4,7 @@ import { button } from 'react'
 
 export const Container = styled.button`
   display: contents;
+
   .div01 {
     display: flex;
     flex-direction: row;
@@ -42,7 +43,6 @@ export const Container = styled.button`
     transition: background-color 0.2s;
     color: #fff;
     background-color: #18A0FB;
-    margin-right: 8px;
     &:hover {
       background-color: ${lighten(0.2, '#18A0FB')};
     }
@@ -62,6 +62,7 @@ export const Container = styled.button`
     border: none;
     border-radius: 8px;
     transition: background-color 0.2s;
+    margin-left: 8px;
     color: #fff;
     background-color: #403F4C;
     &:hover {
@@ -113,6 +114,146 @@ export const Container = styled.button`
       background-color: #403F4C;
       /* color: ${lighten(0.2, '#1B2432')};
       background-color: ${darken(0.2, '#fff')}; */
+    }
+  }
+
+  .div06 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 84px;
+    font-size: 12px;
+    font-weight: bold;
+    border: 1px solid #18A0FB;
+    border-radius: 16px;
+    padding: 4px 8px;
+    margin: 0 0 0 8px;
+    transition: background-color 0.2s;
+    color: #fff;
+    background-color: #18A0FB;
+    &:hover {
+      /* color: ${darken(0.2, '#fff')}; */
+      border-color: #18A0FB;
+      background-color: ${lighten(0.2, '#18A0FB')};
+    }
+  }
+
+  .div07 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 84px;
+    font-size: 12px;
+    font-weight: bold;
+    border: 1px solid #18A0FB;
+    border-radius: 16px;
+    padding: 4px 8px;
+    margin: 0 0 0 8px;
+    transition: background-color 0.2s;
+    color: #18A0FB;
+    background-color: #fff;
+    &:hover {
+      /* color: #fff;
+      border-color: #403F4C;
+      background-color: #403F4C; */
+      color: ${lighten(0.2, '#18A0FB')};
+      background-color: ${darken(0.05, '#fff')};
+    }
+  }
+
+  .div08 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 28px;
+    width: 84px;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 4px 0;
+    padding: 4px;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+    color: #fff;
+    background-color: #18A0FB;
+    &:hover {
+      background-color: ${lighten(0.2, '#18A0FB')};
+    }
+  }
+
+  .div09 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 84px;
+    font-size: 12px;
+    font-weight: bold;
+    border: 1px solid #699DBF;
+    border-radius: 16px;
+    padding: 4px 8px;
+    margin: 0 0 0 8px;
+    transition: background-color 0.2s;
+    color: #fff;
+    background-color: #699DBF;
+    &:hover {
+      /* color: ${darken(0.2, '#fff')}; */
+      border-color: #699DBF;
+      background-color: ${lighten(0.2, '#699DBF')};
+    }
+  }
+
+  .div10 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 84px;
+    font-size: 12px;
+    font-weight: bold;
+    border: 1px solid #699DBF;
+    border-radius: 16px;
+    padding: 4px 8px;
+    margin: 0 0 0 8px;
+    transition: background-color 0.2s;
+    color: #699DBF;
+    background-color: #fff;
+    &:hover {
+      /* color: #fff;
+      border-color: #403F4C;
+      background-color: #403F4C; */
+      color: ${lighten(0.2, '#699DBF')};
+      background-color: ${darken(0.05, '#fff')};
+    }
+  }
+
+  @media (max-width: 620px) {
+   .div04 {
+     min-width: 100px;
+   }
+
+    .div05 {
+      min-width: 100px;
+    }
+
+    .div08 {
+      height: 28px;
+      width: auto;
+    }
+
+    .div09 {
+      height: 21px;
+      width: auto;
+      min-width: 90px;
+    }
+
+    .div10 {
+      height: 21px;
+      width: auto;
+      min-width: 90px;
     }
   }
 `;

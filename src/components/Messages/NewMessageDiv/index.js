@@ -15,12 +15,12 @@ import Searchbar from '~/components/Searchbar';
 import api from '~/services/api';
 
 function NewMessageDiv({
+  chatMessages,
   loadFollowers, loadFollowing, loadMessages,
   message,
   newWorkerData,
-  setForwardValue,
-  chatMessages, setChatMessages,
-  oldChatId, setOldChatId,
+  oldChatId,
+  setChatMessages, setForwardValue, setOldChatId,
 }) {
   const user_id = useSelector(state => state.user.profile.id)
 
@@ -53,8 +53,6 @@ function NewMessageDiv({
   fdate == null
     ? ''
     : format(fdate, "dd'/'MMM'/'yyyy HH:mm", { locale: ptBR });
-
-    // console.log(newWorkerData)
 
   useEffect(() => {
     getMessages()

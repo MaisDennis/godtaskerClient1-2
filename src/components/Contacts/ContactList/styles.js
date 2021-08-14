@@ -2,13 +2,14 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 50%;
-  overflow-y: scroll;
+  overflow: hidden;
+  /* overflow-y: scroll;
   ::-webkit-scrollbar {
     width: 4px;
   }
   ::-webkit-scrollbar-thumb {
     background: #ccc;
-  }
+  } */
   border-radius: 8px;
   margin: 4px 2px 4px 4px;
   padding: 8px;
@@ -48,5 +49,43 @@ export const Container = styled.div`
     width: 100%;
     margin: 8px 0;
     background: #a0daa9;
+  }
+
+  .contact-list {
+    height: 100%;
+    border-radius: 4px;
+    overflow-y: scroll;
+    ::-webkit-scrollbar {
+      width: 4px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #ccc;
+    }
+    padding-bottom: 60px;
+    /* background-color: #e3e; */
+  }
+
+  @media (max-width: 1400px) {
+    .list-header-strong {
+      font-size: .8rem;
+    }
+  }
+
+  @media (max-width: 620px) {
+    display: ${({ toggleContainer }) => (
+      toggleContainer === 1 ? 'block' : 'none'
+    )};
+    height: 92vh;
+    width: 100%;
+    margin: 4px 0;
+    /* background-color: #f00; */
+
+    .list-header-strong {
+      font-size: .8rem;
+    }
+
+    .contact-list {
+      padding-bottom: 80px;
+    }
   }
 `;

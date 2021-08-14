@@ -16,10 +16,9 @@ import api from '~/services/api';
 function TaskDetails({
   listState,
   load,
-  setEditTask,
-  task,
+  setEditTask, setToggleContainer,
+  task, toggleContainer,
   user_id,
-
 }) {
   const [ toggleEvaluate, setToggleEvaluate ] = useState();
   const [ scoreValue, setScoreValue] = useState();
@@ -126,14 +125,12 @@ function TaskDetails({
   //----------------------------------------------------------------------------
   return (
     <>
-    <Container>
+    <Container toggleContainer={toggleContainer}>
       <header className="details-header-div">
         <div className="details-title-div">
           <MdAssignment size={20} color={'#34A0A4'}/>
           <strong className="details-title-strong">{task && task.name}</strong>
         </div>
-        {/* <div className="list-header-title-div">
-        </div> */}
         {listState === 1 && (
           <div className="sub-tasks-buttons-div">
             <Button
@@ -144,6 +141,12 @@ function TaskDetails({
               type="03"
               onClick={() => handleCancelConfirm()}
             >Cancel</Button>
+            <div className="back-button">
+              <Button
+                type="03"
+                onClick={() => setToggleContainer(1)}
+              >Back</Button>
+            </div>
           </div>
         )}
         {listState === 2 && (

@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 50%;
+  border-radius: 8px;
   overflow-y: scroll;
   ::-webkit-scrollbar {
     width: 4px;
@@ -9,11 +10,14 @@ export const Container = styled.div`
   ::-webkit-scrollbar-thumb {
     background: #ccc;
   }
-  border-radius: 8px;
   padding: 8px;
   margin: 4px 4px 4px 2px;
   background-color: #fff;
   /* background-color: #f00; */
+
+  .back-button {
+    display: none;
+  }
 
   .details-header-div {
     display: flex;
@@ -172,7 +176,7 @@ export const Container = styled.div`
     border: 0;
     border-radius: 4px;
     border: 1px solid #000;
-    padding: 0 12px;
+    padding: 12px;
     background-color: #fff;
   }
 
@@ -338,5 +342,15 @@ export const Container = styled.div`
     }
   }
   @media (max-width: 620px) {
+    display: ${({ toggleContainer }) => (
+      toggleContainer === 2 ? 'block' : 'none'
+    )};
+    width: 100%;
+    margin: 4px 0;
+    /* background-color: #ffc87c; */
+
+    .back-button {
+      display: block;
+    }
   }
 `;
